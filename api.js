@@ -70,8 +70,9 @@ export function postNew({token}, description, imageUrl) {
     if (response.status === 400) {
       throw new Error("произошла ошибка");
     }
-    getPosts({token})
     return response.json()
+  }).then((responseData) => {
+    getPosts({token})
   })
 }
 
